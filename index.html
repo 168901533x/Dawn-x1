@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给姐姐请安</title>
+  <style>
+    :root {
+      --bg1: #fff5f7;
+      --bg2: #fefcf6;
+      --card: rgba(255, 255, 255, 0.92);
+      --text-main: #3d2a2f;
+      --text-sub: #7b5b64;
+      --accent: #ff7ca8;
+      --accent-soft: #ffd7e4;
+      --shadow: 0 12px 30px rgba(120, 70, 90, 0.18);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      background: linear-gradient(160deg, var(--bg1), var(--bg2));
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .card {
+      width: min(100%, 720px);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .image-wrap {
+      margin: 0;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #ffe3ed, #ffeede);
+      display: grid;
+      place-items: center;
+      color: var(--text-sub);
+      font-size: 15px;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .content {
+      padding: 26px 20px 30px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #a34d6e;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 8vw, 42px);
+      line-height: 1.25;
+      letter-spacing: 1px;
+      color: #4b2d39;
+    }
+
+    .subtitle {
+      margin: 12px auto 0;
+      font-size: clamp(15px, 4.2vw, 18px);
+      line-height: 1.8;
+      color: var(--text-sub);
+      max-width: 32em;
+    }
+
+    .divider {
+      width: 72px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #ffd2e2, var(--accent));
+      margin: 18px auto 16px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #9b7a83;
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 12px;
+      }
+
+      .content {
+        padding: 22px 16px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <figure class="image-wrap">
+      <!-- 把下面 src 改成你的图片地址即可 -->
+      <img
+        class="hero-image"
+        src="./1.jpg"
+        alt="祝福图片"
+      />
+      <!-- 如果你暂时不想显示图片，可删掉 img 标签，仅保留这段提示文字 -->
+      <!-- 这里将放你的图片 -->
+    </figure>
+
+    <section class="content">
+      <span class="badge">今日份请安</span>
+      <h1>给姐姐请安</h1>
+      <div class="divider"></div>
+      <p class="subtitle">
+        姐姐驾到，弟弟在线请安！<br />
+        祝你今天快乐翻倍，烦恼退退退。
+      </p>
+      <p class="footer-note">温馨提示：看到这条请安，今天运气 +100。</p>
+    </section>
+  </main>
+</body>
+</html>
