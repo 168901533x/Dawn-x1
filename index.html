@@ -6,8 +6,9 @@
   <title>给姐姐请安</title>
   <style>
     :root {
-      --bg1: #fff5f7;
-      --bg2: #fefcf6;
+      --bg1: #ffd4e6;
+      --bg2: #ff8fbe;
+      --bg3: #ffb6d5;
       --card: rgba(255, 255, 255, 0.92);
       --text-main: #3d2a2f;
       --text-sub: #7b5b64;
@@ -26,13 +27,100 @@
       min-height: 100vh;
       font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
       color: var(--text-main);
-      background: linear-gradient(160deg, var(--bg1), var(--bg2));
+      background: linear-gradient(145deg, var(--bg1) 0%, var(--bg2) 55%, var(--bg3) 100%);
       display: grid;
       place-items: center;
       padding: 18px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .liquid-bg {
+      position: absolute;
+      inset: -24vmax;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(12px) saturate(115%);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 44% 56% 60% 40% / 45% 39% 61% 55%;
+      opacity: 0.62;
+      mix-blend-mode: screen;
+      animation: blobMorph 8s ease-in-out infinite, blobDrift 18s linear infinite;
+    }
+
+    .blob-1 {
+      width: 46vmax;
+      height: 46vmax;
+      left: 4vmax;
+      top: 2vmax;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.65), rgba(255, 156, 201, 0.2) 60%, rgba(255, 156, 201, 0));
+    }
+
+    .blob-2 {
+      width: 52vmax;
+      height: 52vmax;
+      right: 2vmax;
+      top: 12vmax;
+      animation-delay: -2.5s;
+      background: radial-gradient(circle at 65% 40%, rgba(255, 167, 214, 0.65), rgba(255, 112, 182, 0.24) 58%, rgba(255, 112, 182, 0));
+    }
+
+    .blob-3 {
+      width: 44vmax;
+      height: 44vmax;
+      left: 24vmax;
+      bottom: 4vmax;
+      animation-delay: -5s;
+      background: radial-gradient(circle at 40% 60%, rgba(255, 215, 232, 0.58), rgba(255, 146, 193, 0.26) 60%, rgba(255, 146, 193, 0));
+    }
+
+    .blob-4 {
+      width: 40vmax;
+      height: 40vmax;
+      right: 20vmax;
+      bottom: -8vmax;
+      animation-delay: -7s;
+      background: radial-gradient(circle at 52% 44%, rgba(255, 248, 252, 0.7), rgba(255, 175, 213, 0.24) 58%, rgba(255, 175, 213, 0));
+    }
+
+    @keyframes blobMorph {
+      from {
+        border-radius: 44% 56% 60% 40% / 45% 39% 61% 55%;
+        transform: scale(1);
+      }
+
+      50% {
+        border-radius: 60% 40% 52% 48% / 44% 56% 42% 58%;
+        transform: scale(1.06);
+      }
+
+      to {
+        border-radius: 48% 52% 42% 58% / 60% 43% 57% 40%;
+        transform: scale(0.97);
+      }
+    }
+
+    @keyframes blobDrift {
+      from {
+        transform: translate3d(-2vmax, 0.5vmax, 0) rotate(0deg);
+      }
+
+      50% {
+        transform: translate3d(2vmax, -1.8vmax, 0) rotate(180deg);
+      }
+
+      to {
+        transform: translate3d(-2vmax, 0.5vmax, 0) rotate(360deg);
+      }
     }
 
     .card {
+      position: relative;
+      z-index: 1;
       width: min(100%, 720px);
       background: var(--card);
       border-radius: var(--radius);
@@ -119,6 +207,12 @@
   </style>
 </head>
 <body>
+  <div class="liquid-bg" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="blob blob-4"></span>
+  </div>
   <main class="card">
     <figure class="image-wrap">
       <!-- 把下面 src 改成你的图片地址即可 -->
